@@ -436,20 +436,6 @@
         updateCountdown(); // Jalankan pertama kali agar tidak delay 1 detik
     </script>
 
-    <script>
-        const stickyTop = document.querySelector('.sticky-top');
-        const offcanvas = document.querySelector('.offcanvas');
-
-        offcanvas.addEventListener('show.bs.offcanvas', function(){
-          stickyTop.style.overflow = 'visible';
-        });
-
-        offcanvas.addEventListener('hidden.bs.offcanvas', function(){
-          stickyTop.style.overflow = 'hidden';
-        });
-
-
-    </script>
 
     <script>
       const rootElement = document.querySelector(":root");
@@ -458,39 +444,58 @@
       const song = document.querySelector('#song');
 
       let isPlaying = false;
+      let scrollTop = 0;
+      let scrollLeft = 0;
 
-      function disableScroll(){
+      // ⛔ Kunci scroll total (Chrome aman)
+      function disableScroll() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
-        window.onscroll = function () {
-          window.scrollTo(scrollTop, scrollLeft);
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+
+        // cegah scroll pakai wheel/touch/keyboard
+        window.addEventListener("scroll", lockPosition);
+        window.addEventListener("wheel", preventDefault, { passive: false });
+        window.addEventListener("touchmove", preventDefault, { passive: false });
+        window.addEventListener("keydown", preventKeys, false);
+
+        rootElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, 0);
+      }
+
+      // ✅ Buka scroll
+      function enableScroll() {
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+
+        window.removeEventListener("scroll", lockPosition);
+        window.removeEventListener("wheel", preventDefault);
+        window.removeEventListener("touchmove", preventDefault);
+        window.removeEventListener("keydown", preventKeys);
+
+        rootElement.style.scrollBehavior = "smooth";
+        playAudio();
+      }
+
+      // Helper buat kunci posisi
+      function lockPosition() {
+        window.scrollTo(scrollLeft, scrollTop);
+      }
+
+      // Helper block default event
+      function preventDefault(e) {
+        e.preventDefault();
+      }
+
+      // Helper block tombol panah, spasi, PgUp/PgDn
+      function preventKeys(e) {
+        const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; 
+        if (keys.includes(e.keyCode)) {
+          e.preventDefault();
         }
-
-        rootElement.style.scrollBehavior = 'auto';
       }
-
-      function enableScroll(){
-          window.onscroll = function () {}
-          rootElement.style.scrollBehavior = 'smooth';
-          // localStorage.setItem('opened','true');
-          playAudio();
-
-          // 🔽 Auto scroll ke bawah halaman
-          // const scrollSpeed = 0.6;
-          // const interval = 30; 
-          // // 16ms ≈ 60fps
-
-          // const scrollInterval = setInterval(() => {
-          //     window.scrollBy(0, scrollSpeed);
-
-          //     // stop kalau sudah sampai bawah
-          //     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-          //         clearInterval(scrollInterval);
-          //     }
-          // }, interval);
-      }
-
 
       function playAudio(){
         song.volume = 1;
@@ -504,21 +509,18 @@
           song.pause();
           audioIcon.classList.remove('bi-disc');
           audioIcon.classList.add('bi-pause-circle');
-        } else{
+        } else {
           song.play();
           audioIcon.classList.remove('bi-pause-circle');
           audioIcon.classList.add('bi-disc');
         }
-
         isPlaying = !isPlaying;
       }
 
-      // if (!localStorage.getItem('opened')){
-      //   disableScroll();
-      // }
-
+      // 🚫 Lock scroll waktu pertama load
       disableScroll();
     </script>
+
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -601,11 +603,5 @@
           }, 100);
         });
     </script>
-
-
-
-
-
-
   </body>
 </html>
