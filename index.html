@@ -31,23 +31,23 @@
   <body>
     <section id="hero" class="hero active w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-black">
       <main>
-        <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
-        <h1>Diska & Endang</h1>
-        <p> Akan Melangsungkan resepsi pernikahan dalam:</p>
+        <h4 data-aos="fade-up" data-aos-offset="300">Kepada Bapak/Ibu/Saudara/i,</h4>
+        <h1 data-aos="zoom-in" data-aos-offset="305">Diska & Endang</h1>
+        <p data-aos="fade-down" data-aos-offset="300"> Akan Melangsungkan resepsi pernikahan dalam:</p>
           <div class="countdown">
-            <div>
+            <div data-aos="fade-up" data-aos-offset="300">
               <div id="days" class="circle">00</div>
               <div class="label">Hari</div>
             </div>
-            <div>
+            <div data-aos="fade-down" data-aos-offset="301">
               <div id="hours" class="circle">00</div>
               <div class="label">Jam</div>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-offset="302">
               <div id="minutes" class="circle">00</div>
               <div class="label">Menit</div>
             </div>
-            <div>
+            <div data-aos="fade-down" data-aos-offset="303">
               <div id="seconds" class="circle">00</div>
               <div class="label">Detik</div>
             </div>
@@ -174,6 +174,34 @@
       </div>
     </section>
 
+    <section id="doa" class="doa-section">
+      <div class="overlay"></div>
+
+      <!-- Judul dengan SVG -->
+      <div class="judul-wrapper" data-aos="fade-down" data-aos-duration="1200">
+        <svg class="hiasan kiri" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 20">
+          <path d="M0,10 Q30,0 60,10 Q90,20 120,10" />
+        </svg>
+
+        <h2 class="judul-doa">Harapan & Doa</h2>
+
+        <svg class="hiasan kanan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 20">
+          <path d="M0,10 Q30,20 60,10 Q90,0 120,10" />
+        </svg>
+      </div>
+
+      <!-- Isi Doa -->
+      <div class="doa-content text-center" data-aos="zoom-in" data-aos-duration="1500">
+        <h3 class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h3>
+        <p class="isi-doa">
+          Maha suci Allah yang menciptakan makhluk-Nya berpasang-pasangan. <br />
+          Ya Allah, perkenankanlah kami merangkaikan kasih sayang yang Kau ciptakan di antara kami
+          untuk mengikuti sunnah Rasul-Mu dalam rangka membentuk keluarga yang
+          <span class="highlight">sakinah, mawaddah, warahmah</span>.
+        </p>
+      </div>
+    </section>
+
     <section id="story" class="story">
       <div class="flower-top" data-aos="fade-down">
         <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
@@ -253,6 +281,35 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="terimakasih" class="thanks-section">
+      <div class="overlay"></div>
+
+      <!-- Judul -->
+      <div class="judul-wrapper" data-aos="fade-down" data-aos-duration="1200">
+        <svg class="hiasan kiri" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 20">
+          <path d="M0,10 Q30,0 60,10 Q90,20 120,10" />
+        </svg>
+
+        <h2 class="judul-terimakasih">Terima Kasih</h2>
+
+        <svg class="hiasan kanan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 20">
+          <path d="M0,10 Q30,20 60,10 Q90,0 120,10" />
+        </svg>
+      </div>
+
+      <!-- Isi ucapan -->
+      <div class="thanks-content text-center" data-aos="zoom-in" data-aos-duration="1500">
+        <p class="isi-thanks">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i
+          berkenan hadir dan memberikan doa restu pada acara kami.
+        </p>
+        <p class="penutup">
+          Atas kehadiran dan doa restunya, kami ucapkan terima kasih yang sebesar-besarnya.
+        </p>
+        <p class="salam">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
       </div>
     </section>
 
@@ -355,6 +412,9 @@
         </div>
       </div>
     </section>
+    
+
+
 
     <footer>
       <div class="container">
@@ -383,15 +443,24 @@
         <i class="bi bi-chat-left-quote"></i>
         <span>Info</span>
       </a>
+      <a href="#doa">
+        <i class="bi bi-journal-text"></i>
+        <span>Doa</span>
+      </a>
       <a href="#story">
         <i class="bi bi-envelope"></i>
         <span>Story</span>
+      </a>
+      <a href="#terimakasih">
+        <i class="bi bi-check2-circle"></i>
+        <span>Thanks</span>
       </a>
       <a href="#gallery">
         <i class="bi bi-heart"></i>
         <span>Gallery</span>
       </a>
     </nav>
+
 
     <div id="audio-container">
       <audio id="song" autoplay loop>
