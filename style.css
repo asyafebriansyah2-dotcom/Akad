@@ -76,6 +76,7 @@ body {
   text-shadow: var(--shadow);
   color: white;
   font-weight: bold;
+   transform: translateY(-15px);
 }
 
 .hero h4{
@@ -102,6 +103,7 @@ body {
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
+  transform: translateY(30px);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -116,12 +118,12 @@ body {
   left: 50%;
   transform: translateX(-50%);
   display: none;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 100%;
   padding: 5px 0;
   border-radius: 12px 12px 0 0;
-  gap: 10px;
+  gap: 5px;
   z-index: 1000;
 
   /* Glassmorphism putih terang */
@@ -136,7 +138,7 @@ body {
   text-align: center;
   color: #f1eff5;          /* warna default abu */
   font-size: 11px;
-  padding: 6px 0;
+  padding: 5px 0;
   border-radius: 8px;
   transition: 0.3s;
 }
@@ -241,7 +243,7 @@ body {
 }
 
 .info{
-  background-color: rgb(28, 29, 29);
+  background-color: rgb(0, 0, 0);
   color: white;
   margin-top: -2rem;
   padding-top: 5rem;
@@ -291,6 +293,102 @@ body {
   text-shadow: var(--shadow);
 }
 
+
+/* === Section Doa Premium === */
+
+.judul-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.judul-doa {
+  font-family: 'Sacramento', cursive;
+  font-size: 2rem;
+  color: #fffdfd;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.hiasan {
+  width: 100px;
+  height: auto;
+}
+
+.hiasan path {
+  stroke: #d4af37; /* emas */
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+
+.doa-section {
+  position: relative;
+  background-color: #150643; /* motif halus background */
+  background-size: cover;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Overlay tipis biar lebih dramatis */
+.doa-section .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* Hiasan kiri kanan (PNG bunga transparan) */
+.doa-section .flower-left,
+.doa-section .flower-right {
+  position: absolute;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.doa-section .flower-left {
+  left: 0;
+  background-image: url('flower-left.png'); /* pakai gambar floral PNG */
+}
+.doa-section .flower-right {
+  right: 0;
+  background-image: url('flower-right.png');
+}
+
+/* Konten doa */
+.doa-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  margin: auto;
+}
+
+.doa-content .arabic {
+  font-family: "Amiri", serif; /* font arab elegan */
+  font-size: 1.5rem;
+  color: #f5d78f; /* emas soft */
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(245, 215, 143, 0.5);
+}
+
+.doa-content .isi-doa {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #eee;
+  font-style: italic;
+}
+
+
+
 .countdown {
   display: flex;
   justify-content: center;
@@ -310,6 +408,7 @@ body {
   width: 70px;
   height: 70px;
   margin-top: 100px;
+  transform: translateY(35px);
   background-color: var(--biru);
   color: black;
   border-radius: 50%;
@@ -495,22 +594,14 @@ body {
   position: relative;
   width: 100%;
   line-height: 0;
-  margin-top: -80px; /* tarik lebih ke atas */
+  margin-top: -79px; /* tarik lebih ke atas */
 }
 
 .flower-top svg {
   display: block;
   width: 100%;
-  height: 180px; /* jangan terlalu tinggi biar ga numpuk */
+  height: 125px; /* jangan terlalu tinggi biar ga numpuk */
 }
-
-
-
-
-
-
-
-
 
 /* Wrapper full lebar untuk tombol */
 .toggle-wrapper {
@@ -600,10 +691,75 @@ body {
   transform: rotate(180deg); /* panah berputar */
 }
 
+/* Section Terima Kasih */
+.thanks-section {
+  position: relative;
+  padding: 60px 20px;
+  background: #fff; /* putih */
+  color: #000; /* teks hitam */
+  text-align: center;
+  overflow: hidden;
+}
+
+.thanks-section .overlay {
+  display: none; /* overlay tidak dipakai di background putih */
+}
+
+/* Judul */
+.judul-terimakasih {
+  font-family: 'Sacramento', cursive;
+  font-size: 2.4rem; /* sedikit lebih kecil */
+  color: #111;
+  text-shadow: none;
+  font-weight: normal;
+}
+
+/* Isi ucapan */
+.thanks-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.isi-thanks {
+  font-size: 1rem; /* lebih kecil */
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.penutup {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.salam {
+  font-size: 1.05rem;
+  color: #b8860b; /* emas gelap */
+  font-weight: 600;
+}
+
+/* SVG Hiasan */
+.hiasan {
+  width: 80px; /* lebih kecil */
+  height: auto;
+}
+
+.hiasan path {
+  stroke: #b8860b; /* emas */
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+
 
 footer{
   padding: 3rem;
-  background-color: black;
+  background-color: #150643;
   color: white;
   text-shadow: var(--shadow);
 }
