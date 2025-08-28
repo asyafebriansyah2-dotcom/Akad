@@ -588,6 +588,25 @@ body {
   color: white;
 }
 
+.gallery-img.landscape {
+  width: 90%;                 /* agak kecil biar ada frame */
+  height: auto;
+  max-height: 230px;          /* kontrol tinggi maksimal */
+  object-fit: contain;        /* gambar utuh */
+  object-position: center;    /* pastikan isi gambar center */
+
+  display: block;  
+  padding: 0;           
+  margin: 10px auto;          /* auto = selalu ke tengah */
+  
+  border: 3px solid #fff;     /* frame putih tipis */
+  border-radius: 12px;        
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* bayangan halus */
+}
+
+
+
+
 /* Bungaan Top */
 /* Bungaan Top */
 .flower-top {
